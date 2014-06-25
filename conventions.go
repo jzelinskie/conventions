@@ -93,10 +93,9 @@ func NewExample(id int, name, description string) *Example {
 //
 // Methods are always what come after constructors. Godoc will order them
 // alphabetically, but it is often more useful to order them logically.
-// Receivers should only be pointers if the method modifies the receiver. A
-// *Example can still call a method with the receiver (e Example). A receiver
-// may also be a pointer if the receiver type is a large struct. This is done
-// for efficiency reasons.
+// For most receivers, prefer pointers over values.  Exceptions to this 
+// are small arrays, small structs (or structs that are natural value 
+// types), maps, functions, and channels.
 func (e Example) Method() (bool, error) {
 	// The use of := for capturing the result of function calls and expressions
 	// is preferrable to the use of var.
