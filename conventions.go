@@ -130,7 +130,7 @@ func main() {
 		panic("conventions: example method should always return a nil error.")
 	}
 
-	// When a zero-value is desired, use the var keyword. Avoid using := around
+	// When a zero-value is desired, use the var keyword. Avoid using := inside
 	// if statements as variables can accidently become shadowed.
 	var multiplier int
 	if example.ID > 10 {
