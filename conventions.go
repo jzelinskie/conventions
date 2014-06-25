@@ -96,10 +96,10 @@ func NewExample(id int, name, description string) *Example {
 // Receivers should only be pointers if the method modifies the receiver. A
 // *Example can still call a method with the receiver (e Example).
 func (e Example) Method() (bool, error) {
-	var (
-		nameLength = len(e.Name)
-		result     = nameLength < 10
-	)
+	// The use of := for capturing the result of function calls and expressions
+	// is preferrable to the use of var.
+	nameLength := len(e.Name)
+	result := nameLength < 10
 
 	// Keep lines between logical groups of statements, including the final
 	// return.
@@ -115,9 +115,7 @@ func init() {
 // package named main to generate a binary file.
 func main() {
 	// Break long function calls into its multi-line form. Functions with lots of
-	// parameters are often a code smell. The use of := for capturing the result
-	// of function calls is preferrable to the use of var because it can handle
-	// multiple return values.
+	// parameters are often a code smell.
 	example := NewExample(
 		1,
 		"conventions",
