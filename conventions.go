@@ -106,11 +106,13 @@ func (e Example) Method() (bool, error) {
 	return result, nil
 }
 
-// The last thing before main is always init.
+// Second to last in a file is an init func. This func enables you to run code
+// at package import time.
 func init() {
 }
 
-// The last thing a file should be main.
+// Last in a file should be a main func. This func should only be present in a
+// package named main to generate a binary file.
 func main() {
 	// Break long function calls into its multi-line form. Functions with lots of
 	// parameters are often a code smell. The use of := for capturing the result
