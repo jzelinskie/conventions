@@ -24,10 +24,12 @@ package conventions
 // form.
 //
 // One $GOPATH contains all of the packages on the internet. Whenever something
-// is exported, the author is forced to maintain stability of that package's
-// API. If the author is a bad citizen, they will break API and those depending
-// on the API will have two options: update their code or fork the package.
-// Forking comes at a cost: it changes the name of all of the imports.
+// is exported, the author must maintain stability of that package's API. For
+// git repos, "go get" will look for a "go1" tag or fallback to the master
+// branch. If an author is a bad citizen, they may break their API and those
+// depending on it will have two options: update their code or fork the package.
+// Forking comes at a cost: it changes the name of all of the imports,
+// essentially creating a brand new package.
 import (
 	// Imports from the Go standard libraries are grouped together at the top.
 	"errors"
@@ -93,8 +95,8 @@ func NewExample(id int, name, description string) *Example {
 //
 // Methods are always what come after constructors. Godoc will order them
 // alphabetically, but it is often more useful to order them logically.
-// For most receivers, prefer pointers over values.  Exceptions to this 
-// are small arrays, small structs (or structs that are natural value 
+// For most receivers, prefer pointers over values.  Exceptions to this
+// are small arrays, small structs (or structs that are natural value
 // types), maps, functions, and channels.
 func (e Example) Method() (bool, error) {
 	// The use of := for capturing the result of function calls and expressions
