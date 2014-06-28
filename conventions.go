@@ -16,7 +16,7 @@
 // The documentation for an entire package written here; only one of the files
 // in a package should have it. Comments are always on the line above the thing
 // they are documenting. Package declarations and any exports require comments
-// and should be in the form of "Package pkgname ..." and "ExportName ..."
+// that should be in the form of "Package pkgname ..." and "ExportName ..."
 // respectively.
 package conventions
 
