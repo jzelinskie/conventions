@@ -125,8 +125,9 @@ func main() {
 		"this is getting quite meta",
 	)
 
-	_, err := example.Method()
-	if err != nil {
+	// If there is no desire to expose any variables outside of the scope of an
+	// if-statement, this two-claused form is preferable.
+	if _, err := example.Method(); err != nil {
 		// Panics are used only in situations that inform the programmer that they
 		// are doing something wrong. They should not be used like exceptions --
 		// error is a builtin type for a reason.
