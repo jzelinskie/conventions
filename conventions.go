@@ -17,7 +17,11 @@
 // in a package should have it. Comments are always on the line above the thing
 // they are documenting. Package declarations and any exports require comments
 // that should be in the form of "Package pkgname ..." and "ExportName ..."
-// respectively.
+// respectively. When Go is properly commented in this way, automatic docs
+// can be generated via the "godoc" binary or via godoc.org. For example:
+// http://godoc.org/github.com/jzelinskie/conventions is where you can see the
+// docs for this package, although this package was created specifically to
+// have its source read directly.
 package conventions
 
 // The import and const keywords should always be expanded into their multi-line
@@ -82,7 +86,7 @@ type Example struct {
 // name of the type being returned is the same as the package (i.e.
 // config.New()). Returning a reference literal is better than allocating with
 // the new keyword. Always have a trailing comma on the last item in anything
-// multi-line.
+// multi-line; this is done to reduce diff sizes in version control systems.
 func NewExample(id int, name, description string) *Example {
 	return &Example{
 		ID:          id,
