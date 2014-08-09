@@ -113,6 +113,11 @@ func (e Example) Method() (bool, error) {
 	return result, nil
 }
 
+// ShortMethod is an example of a method short enough to be kept on one line.
+// The gofmt tool will not automatically put methods that are this short on one
+// line, but it will not break them down into multiple lines either.
+func (e Example) ShortMethod() int { return 0 }
+
 // Second to last in a file is an init func. This func enables you to run code
 // at package import time.
 func init() {
