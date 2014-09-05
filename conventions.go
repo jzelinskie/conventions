@@ -37,7 +37,6 @@ package conventions
 import (
 	// Imports from the Go standard libraries are grouped together at the top.
 	"errors"
-	"fmt"
 
 	// Third party imports are placed below the standard libraries. Setting up
 	// text editor hooks to run gofmt and lint on save is a good idea.
@@ -117,39 +116,3 @@ func (e Example) Method() (bool, error) {
 // The gofmt tool will not automatically put methods that are this short on one
 // line, but it will not break them down into multiple lines either.
 func (e Example) ShortMethod() int { return 0 }
-
-// Second to last in a file is an init func. This func enables you to run code
-// at package import time.
-func init() {
-}
-
-// Last in a file should be a main func. This func should only be present in a
-// package named main to generate a binary file.
-func main() {
-	// Break long function calls into its multi-line form. Functions with lots of
-	// parameters are often a code smell.
-	example := NewExample(
-		1,
-		"conventions",
-		"this is getting quite meta",
-	)
-
-	// If there is no desire to expose any variables outside of the scope of an
-	// if-statement, this two-claused form is preferable.
-	if _, err := example.Method(); err != nil {
-		// Panics are used only in situations that inform the programmer that they
-		// are doing something wrong. They should not be used like exceptions --
-		// error is a builtin type for a reason.
-		panic("conventions: example method should always return a nil error.")
-	}
-
-	// When a zero-value is desired, use the var keyword. Avoid using := inside
-	// if statements as variables can accidently become shadowed.
-	var multiplier int
-	if example.ID > 10 {
-		multiplier = 10
-	} else {
-		multiplier = example.ID
-	}
-	fmt.Printf("Multiplier: %v", multiplier)
-}
